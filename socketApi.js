@@ -17,7 +17,7 @@ io.on('connection', function(socket){
 	// On 'chat message' message from client
 	socket.on('chat message', function(msg){
 		// Send message to all sockets
-		io.emit('chat message', msg);
+		io.emit('chat message', msg + "bambam");
 	});
 });
 
