@@ -26,8 +26,8 @@ var server = http.createServer(app);
 
 // test socket.io
 
-var socketApi = require('../socketApi');
-var io = socketApi.io;
+var socket_server = require('../socket_server');
+var io = socket_server.io;
 io.attach(server);
 
 // test socket.io - END

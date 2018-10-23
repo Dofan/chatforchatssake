@@ -8,24 +8,11 @@
 	<ul id="messages"></ul>
 	<form action="">
 		<input id="m" autocomplete="off" />
-		<button>Send</button>
+		<button>Senggdeeee</button>
 	</form>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-	<script>
-	$(function () {
-		var socket = io();
-		// Send message to server
-		$('form').submit(function(){
-			socket.emit('chat message', $('#m').val());
-			$('#m').val('');
-			return false;
-		});
-		// Receive message from server
-		socket.on('chat message', function(msg){
-			$('#messages').append($('<li>').text(msg));
-		});
-	});
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+	<script src="/socket_client.js"></script>
 </body>
 </html>
