@@ -1,3 +1,18 @@
+// On client connect to server,
+// Tell all clients (including self) that a new client has joined
+// Include any set up data, i.e socket.id of sender, colour, position etc
+//
+
+
+
+// Clients first time on server
+// Generate user, i.e name, colour
+// Save data in database
+
+
+
+
+
 console.log("testing......");
 // On document ready event
 	$(function () {
@@ -21,6 +36,11 @@ console.log("testing......");
 			$('#m').val('');
 			return false;
 		});
+
+		socket.on('user_connect', function(msg){
+			console.log(msg);
+		});
+
 		// Receive message from server
 		socket.on('chat message', function(msg){
 			// Add the message to the HTML list
@@ -28,14 +48,28 @@ console.log("testing......");
 		});
 		// Receive message from server
 		socket.on('data', function(msg){
+
+			// For testing, data will be the socket id of the sender and its current location
+			// Get socket.id
+			// The client keeps a list of all the other users (socket.ids),
+			// If the socket.id is not on the list then we add it, also creating a new
+
 			// Add the message to the HTML list
-			$('#messages').append($('<li>').text("data : " + msg));
+			$('#messages').append($('<li>').text(msg));
+
+			// draw a mark
+
 		});
 
 
 //import * as PIXI from 'pixi.js';
 var app = new PIXI.Application(800, 600, {backgroundColor : 0x000000});
 document.body.appendChild(app.view);
+
+$("canvas").bind("click", function(){
+	socket.sendData(bunny.x + " : " + bunny.y);
+
+});
 
 // create a new Sprite from an image path
 var bunny = PIXI.Sprite.fromImage('required/assets/basics/ghost.png')

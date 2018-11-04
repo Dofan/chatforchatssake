@@ -3,26 +3,54 @@
 	{
 		"selected_items":
 		[
+			[
+				"ba",
+				"background-color\tproperty"
+			],
+			[
+				"for",
+				"for\tfor (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"mou",
+				"mouseposition"
+			],
+			[
+				"mous",
+				"mouseposition"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "// Get a socket_io object\nvar socket_io = require('socket.io');\nvar io = socket_io();\nvar socketApi = {};\n\nsocketApi.io = io;\n\nio.on('connection', function(socket){\n\tconsole.log('A user connected');\n\tvar socketId = socket.id;\n\tvar clientIp = socket.request.connection.remoteAddress;\n\n\tconsole.log(clientIp);\n\t// On 'disconnect' message from client\n\tsocket.on('disconnect', function(){\n\t\tconsole.log('user disconnected');\n\t});\n\t// On 'chat message' message from client\n\tsocket.on('chat message', function(msg){\n\t\t// Send message to all sockets\n\t\tio.emit('chat message', msg + \"bambam\");\n\t});\n});\n\nsocketApi.sendNotification = function() {\n\tio.sockets.emit('hello', {msg: 'Hello World!'});\n}\n\nmodule.exports = socketApi;",
-			"file": "socketApi.js",
-			"file_size": 719,
-			"file_write_time": 131842518235104523,
+			"file": "views/index.ejs",
 			"settings":
 			{
-				"buffer_size": 718,
+				"buffer_size": 519,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "package.json",
+			"file": "public/socket_client.js",
 			"settings":
 			{
-				"buffer_size": 362,
+				"buffer_size": 2328,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "socket_server.js",
+			"settings":
+			{
+				"buffer_size": 1363,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -30,7 +58,8 @@
 			"file": "bin/www",
 			"settings":
 			{
-				"buffer_size": 1737,
+				"buffer_size": 1749,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -51,10 +80,133 @@
 			}
 		},
 		{
+			"file": "views/error.ejs",
+			"settings":
+			{
+				"buffer_size": 83,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1074,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "routes/users.js",
 			"settings":
 			{
 				"buffer_size": 203,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 387,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\n\nHeroku, Git, NPM console commands\n\n\n\n\nTo start app locally using nodemon,\nnodemon resarts the local server each time a change in code is detected in the root directory\n\n\tnodemon --exec \"heroku local\"\n\nAdd all files to the staging area,\n\n\tgit add .\n\tgit add --all\n\nSaves a new version of the Git repository to local storage,\n\n\tgit commit -am \"test commit 4\"\n\n\n\n\nPushes any staged data to the heroku master,\n\n\tgit push heoku master\n\n\n\n\n\n\n",
+			"settings":
+			{
+				"buffer_size": 438,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "DB is used to persist data,\nIf the server is shutdown then world data can be saved to the db so it\ncan be reloaded when it is start up again.\n\n\nThe server can persist some data but is mainly used to keep active data live\n\n\nServer maintains a list of connected players,\nWhen a new player joins the server, they are added to this list then the list is sent\nto all connected players, this includes the new player that just connected.\n\n\n\n\nTODO ...\n\n\tIsolate DB code so we keep one connection opened that can be used as needed.\n\n\n\tCookies,\n\tRegistration,\n\tUser DB\n\n\n\n\n\nPlayers exist on a 2d grid,\nPlayers move by clicking on another tile cell,\n\n",
+			"settings":
+			{
+				"buffer_size": 640,
+				"line_ending": "Windows",
+				"name": "DB is used to persist data,"
+			}
+		},
+		{
+			"file": "world.js",
+			"settings":
+			{
+				"buffer_size": 278,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Mizzy\nSarah \nDOB : 04/10/2018\n\nJustin, owner of JibJab?\nshelly - second in command\n\nGQ548366653GB",
+			"settings":
+			{
+				"buffer_size": 97,
+				"line_ending": "Windows",
+				"name": "Mizzy"
+			}
+		},
+		{
+			"contents": "\nrun node in application private data\n\ncreate express framework\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNOTE :: The following fails as npm install doesn't have access\n\n1.) Install Termux from app store.\n\n2.) 'Settings>Apps>Termux>Permissions>Storage' and set to true.\n\n3.) Install 'CodeBoard Keyboard for Coding' from app store then enable and select.\n\n4.) Open Termux.\n\n5.) Execute\t'apt update && apt upgrade'\n\n6.) Execute 'apt install coreutils'\n\n7.) Execute 'termux-setup-storage'\n\n8.) Open File Manager. (Grant access to it)\n\n9.) Go to 'Local > Internal Storage'\n\n10) Create a New Folder, call it 'Nodejs'\n\n11) Execute 'cd storage/shared/nodejs'\n\n12) Execute 'apt install nodejs' (installs nodejs and npm)\n\n13) Execute 'apt install git'\n\n14) Execute 'git clone https://github.com/heroku/node-js-getting-started.git'\n\n15) Execute 'cd node-js-getting-started'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreating a realtime Node.js Socket.io based server on an android device..\n\n\n\nInstall the app \"Termux\" on the android device that you want to use as a server.\n\nTermux is a Terminal emulator and Linux environment for Android.\nIt will allow us to run Node.s on an Android device.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstall the app \"Keyboard with Ctrl key\"\n\nThis will make it easier to interface with Termux.\n\n\nRun these commands in Termux,\n\n\t$ apt update && apt upgrade (Update and Upgrade Termux)\n\n\t$ apt install coreutils (Add some needed functionailty to Termux)\n\n\tDO THIS IN THE $HOME DIR?!?!?\n\n\t$ termux-setup-storage\n\tCreates simlinks to local storage/ common folders, dcim, downloads etc\n\tWe are going to run the server from the downloads folder so we can access\n\tthe project files for modification\n\n\t$ cd downloads (enter folder)\n\t\n\t$ apt install nodejs (installs nodejs and npm)\n\tNow we will install git so we can clone a project from a repository\n\n\t$ apt install git\n\n\tClone a repository that is a basic node.js server\n\n\t$ git clone https://github.com/heroku/node-js-getting-started.git\n    $ cd node-js-getting-started\n\n    \n\n    $ npm install\n\n\n\n\n\n\n\n\n\n",
+			"file": "/C/Users/leina/Desktop/NodeOnAndriodGuide/node-on-android-guide",
+			"file_size": 1993,
+			"file_write_time": 131856913621113561,
+			"settings":
+			{
+				"buffer_size": 2009,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/leina/help/views/index.jade",
+			"settings":
+			{
+				"buffer_size": 66,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/leina/help/views/layout.jade",
+			"settings":
+			{
+				"buffer_size": 125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "body {\n\tbackground-color: #\n  padding: 50px;\n  font: 100px \"Lucida Grande\", Helvetica, Arial, sans-serif;\n}\n\na {\n  color: #00B7FF;\n}\n",
+			"file": "/C/Users/leina/help/public/stylesheets/style.css",
+			"file_size": 112,
+			"file_write_time": 131857419907197176,
+			"settings":
+			{
+				"buffer_size": 133,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/leina/help/routes/index.js",
+			"settings":
+			{
+				"buffer_size": 203,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/leina/help/routes/users.js",
+			"settings":
+			{
+				"buffer_size": 203,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -91,6 +243,11 @@
 	},
 	"file_history":
 	[
+		"/C/Users/leina/Desktop/NodeOnAndriodGuide/node-on-andriod-guide",
+		"/C/Users/leina/Downloads/mongodb-win32-x86_64-2008plus-ssl-4.0.3/mongodb-win32-x86_64-2008plus-ssl-4.0.3/README",
+		"/C/Program Files/MongoDB/Server/4.0/log/mongod.log",
+		"/C/Users/leina/chatforchatssake/client.js",
+		"/C/Users/leina/chatforchatssake/public/client.js",
 		"/C/Users/leina/Documents/HerokuNode/overview",
 		"/C/Users/leina/chatforchatssake/socketApi.js",
 		"/C/Users/leina/nodejs/node-js-getting-started/views/pages/index.ejs",
@@ -110,13 +267,14 @@
 	],
 	"find":
 	{
-		"height": 48.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 128.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -124,6 +282,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"socketApi"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -141,24 +300,81 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 17,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "socketApi.js",
+					"file": "views/index.ejs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 718,
+						"buffer_size": 519,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
+								502,
+								502
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/socket_client.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2328,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								772,
+								772
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 972.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "socket_server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								428,
+								428
 							]
 						],
 						"settings":
@@ -167,57 +383,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 189.0,
+						"translation.y": 251.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 362,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "bin/www",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1737,
+						"buffer_size": 1749,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								310,
-								310
+								402,
+								402
 							]
 						],
 						"settings":
@@ -227,14 +413,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 459.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "public/stylesheets/style.css",
 					"semi_transient": false,
 					"settings":
@@ -258,11 +444,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "routes/index.js",
 					"semi_transient": false,
 					"settings":
@@ -286,12 +472,379 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "views/error.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 83,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1074,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								637,
+								637
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 27.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "routes/users.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								86,
+								69
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								639,
+								639
+							]
+						],
+						"settings":
+						{
+							"auto_name": "DB is used to persist data,",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "world.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								278,
+								278
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 97,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Mizzy",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/C/Users/leina/Desktop/NodeOnAndriodGuide/node-on-android-guide",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2009,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								65,
+								65
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/C/Users/leina/help/views/index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 66,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/C/Users/leina/help/views/layout.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/C/Users/leina/help/public/stylesheets/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "routes/users.js",
+					"buffer": 18,
+					"file": "/C/Users/leina/help/routes/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								129,
+								129
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/C/Users/leina/help/routes/users.js",
 					"semi_transient": false,
 					"settings":
 					{
@@ -314,7 +867,34 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
